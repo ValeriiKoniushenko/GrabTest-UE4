@@ -5,6 +5,7 @@
 
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
+#include "Components/WidgetComponent.h"
 
 AGrabbedItem::AGrabbedItem()
 {
@@ -18,6 +19,12 @@ AGrabbedItem::AGrabbedItem()
 	SphereInteract = CreateDefaultSubobject<USphereComponent>(TEXT("InteractField"));
 	check(SphereInteract);
 	SphereInteract->SetupAttachment(RootComponent);
+
+	WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
+	check(WidgetComponent);
+	WidgetComponent->SetupAttachment(StaticMeshComponent);
+	WidgetComponent->SetWidgetSpace(EWidgetSpace::Screen);
+	WidgetComponent->SetRelativeLocation(FVector(0.f, 100.f, 0.f));
 }
 
 void AGrabbedItem::BeginPlay()

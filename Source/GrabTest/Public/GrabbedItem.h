@@ -9,6 +9,7 @@
 
 class USphereComponent;
 class UUserWidget;
+class UWidgetComponent;
 
 UCLASS()
 class GRABTEST_API AGrabbedItem : public AActor
@@ -24,6 +25,9 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Mesh)
 	USphereComponent* SphereInteract;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Mesh)
+	UWidgetComponent* WidgetComponent;
 	
 protected:
 	// Called when the game starts or when spawned
